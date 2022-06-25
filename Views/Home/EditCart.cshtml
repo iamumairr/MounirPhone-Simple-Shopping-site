@@ -1,0 +1,30 @@
+﻿@model MounirPhone.Models.Cart
+@{
+    ViewData["Title"] = "Update Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section heading{
+<section class="content1">
+    <h1>Update Cart</h1>
+</section>
+}
+<br />
+
+<div class="container">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-5">
+            <form asp-action="EditCart">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Quantity" class="control-label"></label>
+                    <input asp-for="Quantity" min="1" class="form-control" />
+                    <span asp-validation-for="Quantity" class="text-danger"></span>
+                </div>
+                <br />
+                <input type="submit" class="btn btn-primary" value="Update"/>
+            </form>
+        </div>
+    </div>
+</div>

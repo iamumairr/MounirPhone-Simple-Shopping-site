@@ -1,0 +1,50 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+@section heading{
+<div class="container mt-2">
+    <div class="row d-flex align-items-center justify-content-center">
+        <div class="card col-md-4 shadow border p-2 bg-transparent">
+            <section>
+                <form id="account" method="post">
+                    <h2 class="text-white fw-bold text-center">Login</h2>
+                    <hr />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Input.Email" class="form-label text-white"></label>
+                        <input asp-for="Input.Email" class="form-control" aria-required="true" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.Password" class="form-label text-white"></label>
+                        <input asp-for="Input.Password" class="form-control" aria-required="true" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <div class="checkbox">
+                            <label asp-for="Input.RememberMe" class="form-label text-white">
+                                <input class="form-check-input" asp-for="Input.RememberMe" />
+                                @Html.DisplayNameFor(m => m.Input.RememberMe)
+                            </label>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="d-grid gap-2">
+                        <button id="login-submit" type="submit" class="btn btn-outline-primary fw-bolder">Log in</button>
+                    </div>
+                    <div class="mt-1">
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="fw-bold text-decoration-none text-white">Register</a>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+
+}
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}

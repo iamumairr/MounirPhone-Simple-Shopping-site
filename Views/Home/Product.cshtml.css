@@ -1,0 +1,23 @@
+﻿.content1 {
+    width: 100%;
+    position: absolute;
+    top: 47%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: var(--primary-color);
+}
+
+    .content1 h1 {
+        font-size: 60px;
+        margin-top: 80px;
+        transition: 0.3s;
+        transition-timing-function: ease-in-out;
+    }
+
+    .content1 p {
+        margin: 20px auto;
+        font-weight: 100;
+        line-height: 25px;
+        transition: 0.3s;
+        transition-timing-function: ease-in-out;
+    }

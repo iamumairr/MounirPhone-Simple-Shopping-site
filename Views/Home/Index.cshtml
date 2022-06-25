@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section heading{
+    <section class="content">
+        <h1 class="text-center fw-bold display-3">FIND YOUR NEXT PHONE</h1>
+        <p>
+          Welcome to Mounir Phone. Discover a wide range of the latest smart
+          phones on the market. <br />With the best features.
+        </p>
+
+        <div>
+          <button onclick="window.location.href='@Url.Action("Product", "Home")'" type="button" class="btn btn-outline-primary fw-bolder">
+            EXPLORE PRODUCTS
+          </button>
+        </div>
+      </section>
+}
+
+<section class="offers">
+      <h1>What We Offer</h1>
+      <p>
+        We choosed our phone collection based on many factures including<br />
+        The best quality, latest features and all come with affordable price.
+      </p>
+      <div class="rows">
+        <div class="offers-c">
+          <h3>Quality</h3>
+          <p>
+            Quality of our phone is very important to Us. So we provide you with
+            the best quality phones.
+          </p>
+        </div>
+        <div class="offers-c">
+          <h3>Price</h3>
+          <p>
+            Price is very imporatnt facture when you choose your phone. So we
+            make sure we provide you with a price that suits you.
+          </p>
+        </div>
+        <div class="offers-c">
+          <h3>Functions</h3>
+          <p>
+            We try our best to provide you with phones that have the latest
+            features on the phone market.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="Reviews">
+      <h1>Our Customers Reviews</h1>
+      <p>Take a look at some of our Customers Reviews.</p>
+
+      <div class="rows">
+        <div class="Reviews-c">
+          <img src="Assets/Man.jpg" alt="Man" />
+          <div>
+            <p>
+              I highly recommned Mounir Phone. I was looking for a new phone and
+              within 15 minutes I had a decision! The website is clean.
+            </p>
+            <h4>Jack Bolish</h4>
+            <div class="star">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star-half"></ion-icon>
+            </div>
+          </div>
+        </div>
+        <div class="Reviews-c">
+          <img src="Assets/Woman.jpg" alt="Woman" />
+          <div>
+            <p>
+              Reliable and great website! I found out the exact phone I was
+              looking for with a great pricing.<br />
+              Highly recommned it.
+            </p>
+            <h4>Maria Quines</h4>
+            <div class="star">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <br />

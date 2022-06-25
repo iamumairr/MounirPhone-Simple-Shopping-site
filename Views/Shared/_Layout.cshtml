@@ -1,0 +1,119 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using MounirPhone.Data
+
+@inject AppDbContext _context
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Mounir Phone</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MounirPhone.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="background">
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/Assets/Logo.png" alt="Mounir Phone" width="200px" height="58px">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse justify-content-between">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-1">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item mx-1">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Product">Product</a>
+                        </li>
+                        <li class="nav-item mx-1">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="News">News</a>
+                        </li>
+                        <li class="nav-item mx-1">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="AboutMe">About Me</a>
+                        </li>
+                        <li class="nav-item mx-1">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
+                        </li>
+                        @if (User.IsInRole(WC.AdminRole))
+                        {
+                            <li class="nav-item mx-2">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+                            </li>
+                        }
+                        @if (User.IsInRole(WC.UserRole))
+                        {
+                            <li class="nav-item mx-2">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="ShoppingCart">Cart (@_context.Carts.Where(a=>a.Username == UserManager.GetUserName(User)).ToList().Count)</a>
+                            </li>
+                        }
+                    </ul>
+                    <partial name="_LoginPartial"></partial>
+                </div>
+            </div>
+        </nav>
+        @await RenderSectionAsync("heading",false);
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <br />
+    <br />
+
+    <footer class="mt-5">
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="mediaLogo">
+            <li>
+                <a href="https://www.facebook.com/profile.php?id=100009501535667">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/lakroufmounir">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/lakrouf-mounir-39b2231bb/">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/mounir_hbk/">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="footerMenu">
+            <li><a href="@Url.Action("Index","Home")">Home</a></li>
+            <li><a href="@Url.Action("Product","Home")">Product</a></li>
+            <li><a href="@Url.Action("News","Home")">News</a></li>
+            <li><a href="@Url.Action("AboutMe","Home")">About me</a></li>
+            <li><a href="@Url.Action("ContactUs","Home")">Contact us</a></li>
+        </ul>
+
+        <p>© 2022 Mounir Phone by Mounir Lakrouf UK. All Rights Reserved.</p>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module"
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
